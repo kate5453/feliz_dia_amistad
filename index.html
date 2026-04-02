@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas</title>
+    <link rel="stylesheet" href="./preliminar.css">
+    <link rel="stylesheet" href="./ramo.css">
+    <link rel="stylesheet" href="./textos.css">
+</head>
+
+<body>
+<!-- AUDIO -->
+<audio id="clickSound" src="sounds/click.mp3" preload="auto"></audio>
+<audio id="flowerSound" src="sounds/flower.mp3" preload="auto"></audio>
+<audio id="bgMusic" src="sounds/music.mp3" preload="auto" loop></audio>
+
+
+<!-- ------------------------------------- -->
+<!-- Container preliminar -->
+<div class="container" id="inicio">
+  <div class="circle" id="clickCircle">Haz clic aquí</div>
+</div>
+
+<!-- PLANTILLA HTML DE LA FLOR GIRASOL -->
+<template id="flowerTemplate">
+<div class="flor-wrapper">
+    <div class="flor flower--1">
+        <div class="flower__leafs flower__leafs--1">
+
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+            <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+
+            <div class="flower__white-circle"></div>
+
+            <div class="flower__light flower__light--1"></div>
+            <div class="flower__light flower__light--2"></div>
+            <div class="flower__light flower__light--3"></div>
+            <div class="flower__light flower__light--4"></div>
+            <div class="flower__light flower__light--5"></div>
+            <div class="flower__light flower__light--6"></div>
+            <div class="flower__light flower__light--7"></div>
+            <div class="flower__light flower__light--8"></div>
+
+        </div>
+    </div>
+
+    <!-- MENSAJE -->
+    <div class="flower__message"></div>
+</div>
+</template>
+
+<!-- Container principal -->
+<div class="container hidden" id="ramoFinal">
+  <div class="message" id="mensaje">Para ti 💛</div>
+
+  <div class="night"></div>
+  
+  <!-- Lluevia de estrellas fugaces -->
+  <div class="shooting-stars">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+  
+  <!-- Contenedor del ramo de flores -->
+  <div class="flowers" id="ramo_flowers">
+    <!-- Flor 1 -->
+    <div class="flower flower--1">
+      <div class="flower__leafs flower__leafs--1">
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <!-- Flor 2 -->
+    <div class="flower flower--2">
+      <div class="flower__leafs flower__leafs--2">
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <!-- Flor 3 -->
+    <div class="flower flower--3">
+      <div class="flower__leafs flower__leafs--3">
+        <!-- Pétalos exteriores -->
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+    
+    <!-- Flor 4 -->
+    <div class="flower flower--4">
+      <div class="flower__leafs flower__leafs--4">
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <!-- Flor 5 -->
+    <div class="flower flower--5">
+      <div class="flower__leafs flower__leafs--5">
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(0deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(30deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(60deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(90deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(120deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(150deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(180deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(210deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(240deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(270deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(300deg);"></div>
+        <div class="flower__leaf" style="transform: translate(-50%, -10%) rotate(330deg);"></div>
+        <div class="flower__white-circle"></div>
+
+        <div class="flower__light flower__light--1"></div>
+        <div class="flower__light flower__light--2"></div>
+        <div class="flower__light flower__light--3"></div>
+        <div class="flower__light flower__light--4"></div>
+        <div class="flower__light flower__light--5"></div>
+        <div class="flower__light flower__light--6"></div>
+        <div class="flower__light flower__light--7"></div>
+        <div class="flower__light flower__light--8"></div>
+      </div>
+      <div class="flower__line">
+        <div class="flower__line__leaf flower__line__leaf--1"></div>
+        <div class="flower__line__leaf flower__line__leaf--2"></div>
+        <div class="flower__line__leaf flower__line__leaf--3"></div>
+        <div class="flower__line__leaf flower__line__leaf--4"></div>
+      </div>
+    </div>
+
+    <div class="grow-ans" style="--d:1.2s">
+      <div class="flower__g-long">
+        <div class="flower__g-long__top"></div>
+        <div class="flower__g-long__bottom"></div>
+      </div>
+    </div>
+
+    <!-- Grass -->
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--1">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--2">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--7"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--8"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--3">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--4">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--5">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--6">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--6"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--7">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--8">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--4"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--5"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--9">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+
+    <div class="growing-grass">
+      <div class="flower__grass flower__grass--10">
+        <div class="flower__grass--top"></div>
+        <div class="flower__grass--bottom"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--1"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--2"></div>
+        <div class="flower__grass__leaf flower__grass__leaf--3"></div>
+        <div class="flower__grass__overlay"></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Contenedor de card -->
+    <!-- Sección mensaje -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Holaaa Mili</h1>
+            <p class="hero-subtitle">Iniciando el mes, unas flores amarillas 🌻</p>
+            <div class="hero-date">Para mi mejor amiga 💛</div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Descubre</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Contenedor del cuerpo (Primer contenido) -->
+    <section class="main-section">
+        <div class="container-section">
+            <div class="section-header fade-in visible">
+                <h2 class="section-title" style="filter: brightness(1) saturate(1);">Solo pasaba a saludarte.</h2>
+                <p class="section-description">
+                    Arquitecta 😊. Espero que estés bien.
+                    ¿Cómo ha ido tu semana? ¿Sobreviviste? XD <br> 
+                     <br>
+                    
+                    La primera semana del inicio del fin muajaja 😈
+                </p>
+            </div>
+            
+            <div class="premium-card fade-in visible">
+                <p>
+                    Después de todos esos desvelos, maquetas y proyectos… 
+                    ya solo queda el último esfuerzo <br> <br>
+
+                    <b> (y luego a buscar chamba pipipi ).</b><br>
+                    Aunque después de sobrevivir a arquitectura… creo que ya puedes con cualquier cosa. 😆
+
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor segundo de mas mensajes (Segundo contenido) -->
+    <section class="main-section" id="main-second">
+        <div class="container-section">
+            <div class="section-header fade-in visible">
+                <h2 class="section-title"> Ten un buen día </h2>
+                <p class="section-description">  
+                    En la medida de lo posible jejeje. <br>                 
+                    <b>
+                        Una flor para ti. 🌻
+                    </b>
+                </p>
+
+                <!-- GIF de luffy dando una flor -->
+                <div class="gif-container">
+                    <img id="luffyFlowerGif" src="./luffy.gif" alt="Luffy dando una flor">
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-section">
+            <div style="text-align: center;">
+                <button class="magic-button fade-in visible" id="openLetterBtn">
+                    Ver más            
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="letterOverlay">
+    <div class="message-content">
+        <button class="close-message" id="closeLetterBtn">×</button>
+        <h2>Ya viste el trailer?</h2>
+        <div id="typewriterText">
+            <!-- Letter content loaded via JavaScript -->
+            Hola Mili 🌻
+
+            Si estas viendo esto, es porque eres curiosa xd.
+            Quizá esta página sea simple,
+            pero ojalá te haya gustado
+                
+            Por cierto, ¿te darán un respiro por semana santa?
+            O ¿estarás de esclava? 😆
+
+            Gracias por llegar hasta aquí. Cuídate 💛
+        </div>
+        <div class="signature">
+            Psdata, el 30 de abril se estrena la peli<br>
+            Entel me da promoción 2x1 cineplanet 😝​✨
+        </div>
+    </div>
+</div>
+
+<div id="campoFlores"></div>
+
+<!-- Indicador scroll -->
+<div class="scroll-indicator" id="scroll-arrow">
+    <div class="arrow"></div>
+    <span>Desliza</span>
+</div>
+
+<script>
+
+// INICIALIZAR
+let puedeClick = true;
+let clicks = 0;
+let lluviaActiva = false;
+let intervaloFlores;
+let maxFlores = 80;
+
+let modoExplosion = false;
+
+// VARIABLES GLOABALES
+let VIDA_FLOR = 3600;
+let ESCALA_CIRCLE_BOTON_ACTIVO = 1.15;
+let COLOR_ROJO = 0;
+
+
+// ******************************************************************
+const flowerTemplate = document.getElementById("flowerTemplate");
+const INTERVALO_LLUVIA = 120;
+const DURACION_LLUVIA = 6000;
+
+const frasesGirasol = [
+    "Buen día ☀️",
+    "¿Sobreviviendo? 😆",
+    "Hola futura arquitecta",
+    "Pensé en ti hoy",
+    "Un pequeño girasol para ti",
+    "Solo pasaba a saludar",
+    "Espero que estés bien",
+    "Un rayito amarillo para tu día"
+];
+
+// CONSTANTES --------------------------------
+const circle = document.getElementById("clickCircle");
+const mensaje = document.getElementById("mensaje");
+const clickCircle = document.getElementById("clickCircle");
+
+// Constante de campoFlores
+const campoFlores = document.getElementById("campoFlores");
+
+// Constantes de audio
+const clickSound = document.getElementById("clickSound");
+const flowerSound = document.getElementById("flowerSound");
+// sonido
+const BEEP = new Audio( "https://actions.google.com/sounds/v1/alarms/beep_short.ogg");
+
+// *****************************************************
+// CONSTANTES PARA EL MODAL
+const openLetterBtn = document.getElementById("openLetterBtn");
+const closeLetterBtn = document.getElementById("closeLetterBtn");
+const letterOverlay = document.getElementById("letterOverlay");
+
+const typeLine = document.getElementById("typewriterText");
+
+
+// EVENTOS
+// Evento click al circle
+circle.addEventListener("click", ()=>{
+    setTimeout(()=>{
+        // clickSound.currentTime = 0;
+        const clicker = clickSound.cloneNode();
+        clicker.volume = 0.1; // suave
+        clicker.play();
+    }, 5);
+});
+
+circle.addEventListener("click", async () => {
+  
+  if(!puedeClick || lluviaActiva) return;
+
+  clicks++;
+
+  let frase = frasesGirasol[Math.floor(Math.random()*frasesGirasol.length)];
+
+  if(clicks <= 2){
+    puedeClick = false;
+    circle.style.opacity = "0";
+
+
+    await crearFlor(VIDA_FLOR, flowerSound, frase);
+
+    circle.style.opacity = "1";
+
+    if(clicks == 1) circle.innerText = "Haz clic otra vez";
+    if(clicks == 2) circle.innerText = "Haz clic muchas veces";
+
+    
+
+    puedeClick = true;
+    return;
+  }
+
+  // A partir del tercer click
+  modoExplosion = true;
+  crecerBoton();
+  
+});
+
+// Eventos para el modal
+openLetterBtn.addEventListener("click", abrirCarta);
+closeLetterBtn.addEventListener("click", cerrarCarta);
+letterOverlay.addEventListener("click", (e) => {
+    if(e.target === letterOverlay){
+        cerrarCarta();
+    }
+});
+
+
+initParallax(); // Inicializamos el Parallax para hero-content
+initTextReveal(); // Inicializamos el efecto revelación de los textos
+
+
+// FUNCIONES
+// Función crecer circle cuando hagamos click varias veces
+function crecerBoton(){
+    // Hacemos crecer el boton
+    ESCALA_CIRCLE_BOTON_ACTIVO += 0.08;
+    COLOR_ROJO += 12;
+
+    circle.style.transform = `scale(${ESCALA_CIRCLE_BOTON_ACTIVO})`;
+    circle.style.background = `rgb(${COLOR_ROJO},30,30)`;
+
+    if(ESCALA_CIRCLE_BOTON_ACTIVO > 2){
+        mostrarMensajePara();
+    }
+}
+
+// Función para mostrar mensaje de PARA para dar paso a la lluvia de girasoles
+function mostrarMensajePara(){
+
+  puedeClick = false;
+  circle.innerText = "PARA";
+  circle.style.animation = "tensionShake 0.1s infinite";
+
+  BEEP.play();
+
+  setTimeout(async ()=>{
+
+    circle.style.opacity = "0";
+
+    await iniciarLluvia();
+    transicionFinal();
+
+  },1200);
+
+}
+
+// Función para crear la flor
+function crearFlor(vida = VIDA_FLOR, flowerSound, frase = null){
+
+// if(document.querySelectorAll(".flor").length >= maxFlores) return;
+
+return new Promise(resolve=>{
+
+    // const flor = document.createElement("div");
+    // flor.classList.add("flores");
+
+    // flor.innerHTML = FLOR_HTML;
+    const flor = flowerTemplate.content.cloneNode(true).firstElementChild;
+    flor.style.position="absolute";
+
+    // Mostramos o no el mensaje debajo de la flor
+    const mensaje = flor.querySelector(".flower__message");
+    if(frase){
+        mensaje.textContent = frase;
+    }else{
+        mensaje.style.display = "none";
+    }
+  
+    // flor.style.left = (Math.random()*90 + 5)+"vw";
+    // -----------------------------
+    // flor.style.top = (Math.random()*100 - 15)+"vh";
+    
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+    flor.style.left = x + "px";
+    flor.style.top = y + "px";
+    
+    let girasol = flor.querySelector(".flor");
+    // girasol.style.animation = "fall 2s ease-out forwards";
+    girasol.style.transform ="scale("+(Math.random()*0.4+0.6)+") rotate("+(Math.random()*20-10)+"deg)";
+    girasol.style.transition="transform 0.3s ease";
+
+    campoFlores.appendChild(flor);
+
+    // Sonido de aparicion
+    setTimeout(() =>{
+        if(flowerSound){
+            // flowerSound.currentTime = 0;
+            const sonido = flowerSound.cloneNode();
+            sonido.volume = 0.15;
+            sonido.play();
+        }
+    }, vida/3);
+    
+
+    setTimeout(()=>{
+        flor.remove();
+        resolve();    
+    },vida);
+
+    
+}); 
+}
+
+// Función que permite hacer un parallax al hero-content
+function initParallax() {
+    window.addEventListener('scroll', () => {
+        // const scrolled = window.pageYOffset;
+        let scrolled = window.scrollY;
+
+        const heroSection = document.querySelector('.hero-section');
+        const heroContent = document.querySelector('.hero-content');
+        if (heroSection) heroSection.style.transform = `translateY(${scrolled * 0.5}px)`;
+        if (heroSection) heroSection.style.opacity = 0 + scrolled/500;
+
+        // mostrar contenido cuando se hace scroll
+        if(heroContent && scrolled > 100){
+            heroContent.style.opacity = 1 ;
+        }
+    });
+}
+
+// Función que es la lluvia de girasoles
+function iniciarLluvia(){
+
+return new Promise(resolve=>{
+
+    lluviaActiva = true;
+    clickCircle.innerText = "🌻";
+    let total = 0;
+
+    let intervalo = setInterval(()=>{
+        // VIDA_FLOR = 5500;
+        crearFlor(5500, flowerSound);
+        total ++;
+
+        if(total > 40){
+            clearInterval(intervalo);
+        }
+    },INTERVALO_LLUVIA);
+
+    setTimeout(()=>{
+        lluviaActiva=false;
+        resolve();
+    },DURACION_LLUVIA); // duración de la lluvia
+});
+
+}
+
+// Musica para las flores amarillas
+// function iniciarMusica(){
+
+//     const music = document.getElementById("bgMusic");
+
+//     music.volume = 0.4; // suave
+//     music.play();
+
+// }
+function iniciarMusicaConFade() {
+
+    const music = document.getElementById("bgMusic");
+
+    if(!music) return;
+
+    music.volume = 0;
+    music.play();
+
+    let volumenObjetivo = 0.6;
+    let incremento = 0.02;
+
+    let fade = setInterval(() => {
+
+        if(music.volume < volumenObjetivo){
+            music.volume = Math.min(music.volume + incremento, volumenObjetivo);
+        }else{
+            clearInterval(fade);
+        }
+
+    }, 120);
+
+}
+
+// Función para hacer la transición del container preliminar al container principal
+function transicionFinal(){
+    document.body.classList.add("fade-out");
+
+    setTimeout(()=>{
+        romperPantalla();
+    },1500);
+
+}
+function romperPantalla(){
+  limpiarFlores(); // <- elimina todas las flores que pudieran quedar
+
+  const mensaje = ramoFinal.querySelector("#mensaje");
+  const flowers = ramoFinal.querySelector("#ramo_flowers");
+
+  setTimeout( async ()=>{
+
+    document.getElementById("inicio").classList.add("hidden");
+    document.getElementById("ramoFinal").classList.remove("hidden");
+    
+    document.body.style.overflow = "auto"; // 👈 activar scroll
+    document.body.classList.remove("fade-out");
+    document.getElementById("scroll-arrow").classList.add("visible-scroll");
+
+    document.getElementById("ramoFinal").classList.remove("container");
+    document.getElementById("ramoFinal").classList.add("body_ramo");
+
+    // Mostrar mensaje primero
+    // escribir texto
+    await escribirTexto(mensaje,100);
+
+    // después de 1 segundos mostrar flores    
+    await new Promise(r => setTimeout(r,1000));
+    mensaje.style.opacity = "0";
+    mensaje.style.display = "none";
+
+    setTimeout(()=>{
+        flowers.classList.add("visible");
+    },500);
+
+    // iniciarMusica();
+    iniciarMusicaConFade();
+    iniciarEstrellas();
+  },1000);
+
+}
+
+// Limpiar las flores que puedan haber quedado en pantalla
+function limpiarFlores(){
+  campoFlores.innerHTML = "";
+}
+
+// Función que inicia la lluvia de estrellas
+function iniciarEstrellas(){
+
+  setTimeout(() => {
+
+    document.body.classList.remove("not-loaded");
+
+    function createShootingStar(){
+
+      const star = document.createElement('div');
+      star.className = 'shooting-star';
+
+      star.style.top = Math.random() * 60 + '%';
+      star.style.animationDelay = '0s';
+      star.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
+
+      document.querySelector('.shooting-stars').appendChild(star);
+
+      setTimeout(()=>{
+        star.remove();
+      },4000);
+
+    }
+
+    setInterval(()=>{
+
+      if(Math.random() > 0.3){
+        createShootingStar();
+      }
+
+    },3000 + Math.random()*5000);
+
+  },1000);
+
+}
+
+// Función para abrir modal
+function abrirCarta(){
+
+    letterOverlay.classList.add("active");
+
+    // bloquear scroll del body
+    document.body.style.overflow = "hidden";
+
+    // iniciarTypewriter();
+    escribirTexto(typeLine, 60);
+
+}
+// Función para cerrar modal
+function cerrarCarta(){
+    letterOverlay.classList.remove("active");
+    document.body.style.overflow = "auto";
+}
+
+
+// FUNCIONES PARA TEXTO
+// Función para escribir texto como a maquina
+function escribirTexto(elemento, velocidad = 80){
+
+    elemento.style.opacity = "1";
+    return new Promise(resolve => {
+
+        const texto = elemento.textContent;
+        elemento.textContent = "";
+
+        let i = 0;
+
+        const intervalo = setInterval(() => {
+
+            elemento.textContent += texto[i];
+            i++;
+
+            if(i >= texto.length){
+                clearInterval(intervalo);
+                resolve();
+            }
+
+        }, velocidad);
+
+    });
+
+}
+
+// Función para preparar lineas de texto para animationd e fade-in
+function prepararLineasTexto(container) {
+
+    const elementos = container.querySelectorAll(
+        ".section-title, .section-description, .premium-card p"
+    );
+
+    let delayGlobal = 0;
+
+    elementos.forEach(el => {
+
+        if(el.dataset.procesado) return;
+
+        // const lineas = el.innerHTML.split("<br>");
+        const lineas = el.innerHTML.split(/<br\s*\/?>/);
+
+        el.innerHTML = "";
+
+        lineas.forEach((linea, i) => {
+
+            const span = document.createElement("span");
+            span.className = "linea-texto";
+            span.style.animationDelay = `${delayGlobal * 1.4}s`;
+            span.innerHTML = linea.trim();
+
+            el.appendChild(span);
+
+            // 🌻 detectar frase especial
+            if(linea.includes("Una flor para ti. 🌻")){
+
+                setTimeout(()=>{
+                    mostrarGifYLluvia();
+                }, (delayGlobal + 0.5) * 1000);
+
+            }
+
+
+            delayGlobal += 0.8
+        });
+
+        el.dataset.procesado = "true";
+
+        // 👇 mostramos el bloque solo cuando está listo
+        el.style.opacity = "1";
+        el.classList.add("text-ready");
+    });
+
+}
+
+// Función para mostrar texto de las líneas preparadas
+function initTextReveal(){
+
+    const observer = new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+                prepararLineasTexto(entry.target);
+
+                observer.unobserve(entry.target);
+            }
+
+        });
+
+    },{
+        threshold:0.3
+    });
+
+    document.querySelectorAll(".main-section").forEach(section=>{
+        observer.observe(section);
+    });
+
+}
+
+// Función para mostrar GIF
+function mostrarGifYLluvia(){
+
+    const gif = document.querySelector("#luffyFlowerGif");
+    const container = document.querySelector(".gif-container");
+
+    if(!gif) return;
+
+    gif.classList.add("gif-visible");
+
+    // crear 3 girasoles
+    for(let i=0;i<3;i++){
+
+        const flower = document.createElement("div");
+
+        flower.className = "sunflower";
+        flower.innerHTML = "🌻";
+
+        flower.style.left = `${30 + (i*40)}px`;
+        flower.style.animationDelay = `${i*0.4}s`;
+
+        container.appendChild(flower);
+
+        setTimeout(()=>{
+            flower.remove();
+        },2500);
+
+    }
+
+}
+
+
+
+// Se detiene la musica al salir de la pagina
+window.addEventListener("beforeunload", () => {
+
+    const music = document.getElementById("bgMusic");
+
+    if(music){
+        music.pause();
+        music.currentTime = 0;
+    }
+
+});
+</script>
+</body>
+</html>

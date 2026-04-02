@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+body {
+  margin: 0;
+  overflow: hidden;
+  /* background: linear-gradient(to top, #fff9c4, #fffde7); */
+  background: linear-gradient(to top, #11110d, #18170a);
+
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Botón */
+.circle{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  /* background:#fbc02d; */
+  background: transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+  color:rgba(255, 255, 255, 0.65);
+  font-weight:bold;
+  font-size: 1.5rem;
+  /* font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  letter-spacing: 1.75px;
+  padding: 0.5rem;
+
+  cursor:pointer;
+  /* box-shadow:0 0 25px rgba(255,215,0,0.6); */
+  box-shadow:0 0 25px rgba(252, 251, 231, 0.6);
+  transition:0.3s;
+  animation: pop-up 2.5s ease-in-out infinite;
+}
+
+.circle:hover{
+  transform:scale(1.15);
+  animation: none;
+  color: white;
+  box-shadow:0 0 40px rgba(255, 234, 114, 0.6);
+}
+
+@keyframes pop-up {
+    0%, 100%{
+        transform: scale(1);
+        color:rgba(255, 255, 255, 0.65);
+    }
+    50%{
+        transform: scale(1.16);
+        color: white;
+    }
+}
+
+@keyframes tensionShake{
+    0%, 100%{transform:translateX(0)}
+    25%, 75%{transform:translateX(-2px)}
+    50%{transform:translateX(2px)}
+}
+
+/* Flores */
+.flores{
+    position: relative;
+    transform: scale(0.9);
+    z-index: 2;
+
+    will-change: transform, opacity;
+}
+
+/* --------------------- */
+.flor-wrapper{
+    position:absolute;
+    transform-origin: bottom center;
+
+    top: -7vmin;
+    left: 1vmin;
+
+    z-index: 50;
+}
+
+.flor{
+    /* position: absolute;
+    transform-origin: bottom center;
+    z-index: 50; */
+
+    /* top: -7vmin;
+    left: 1vmin; */
+    
+    /* animation: fall linear infinite; */
+    position: relative;
+
+    /* animation: fall linear infinite; */
+    animation: fall 2s ease-out forwards;
+}
+/* ------------------------------ */
+/* ------------------------------ */
+
+@keyframes fall {
+  0% {
+    /* transform: translateY(-10vh) rotate(0deg); */
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Pantalla rompiendose */
+.break{
+  animation: breakScreen 2s forwards;
+}
+
+@keyframes breakScreen{
+  0%, 100%{
+    transform:scale(1);
+    filter:none;
+    opacity: 1;
+  }
+
+  30%{
+    transform:scale(1.05);
+  }
+
+  60%{
+    transform:scale(0.8) rotate(-3deg);
+    filter:blur(8px);
+    opacity: 0.7;
+  }
+
+  80%{
+    transform:scale(1) rotate(3deg);
+    filter:blur(12px);
+  }
+
+  90%{
+    transform:scale(0.5);
+    opacity:0;
+    filter:blur(20px);
+  }
+}
+
+/* ----------------------------- */
+.fade-out{
+animation:fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut{
+0%{
+opacity:1;
+transform:scale(1);
+}
+
+100%{
+opacity:0;
+transform:scale(1.1);
+}
+}
+
+
+/* Pantalla siguiente */
+.hidden {
+  display: none;
+}
+
+.message {
+  font-size: 40px;
+  color: #fbc02d;
+  
+  animation: fadeIn 2s ease forwards;
+  transition: 2s;
+
+  opacity: 0;
+
+  z-index: 2;
+  position: absolute;
+  top: 0;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+
+/* Campo de flores */
+#campoFlores{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+/* mensaje de girasol */
+.flower__message{
+
+position:absolute;
+/* top:70px; */
+/* left:50%; */
+top: 105px;
+left: -95px;
+min-width: 210px;
+transform:translateX(-50%);
+
+/* font-family:'Quicksand', sans-serif; */
+font-family: "Caveat", cursive;
+font-optical-sizing: auto;
+font-style: normal;
+
+/* font-size:0.9rem; */
+font-size: 1.8rem;
+text-align: center;
+font-weight: 600;
+letter-spacing: 1.5px;
+
+color:#ffd54f;
+
+/* white-space:nowrap; */
+
+opacity:0;
+transition: animation 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+animation: mensajeFade 0.8s ease 1.5s forwards;
+
+}
+
+@keyframes mensajeFade{
+
+0%{
+opacity:0;
+transform:translateY(10px) scale(0);
+}
+30%{
+    opacity: 1;
+}
+90%{
+    opacity: 0;
+}
+100%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+}
+
+.title {
+    background-color: #fbc02d;
+    color: #fbc02d;
+    font-size: 40px;
+
+    width: 50vw;
+    height: 100px;
+}
