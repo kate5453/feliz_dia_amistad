@@ -273,3 +273,17 @@ transform:translateY(0) scale(1);
     width: 50vw;
     height: 100px;
 }
+
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+    .flower__message{
+        top: 50px;
+        left: -40px;
+
+        min-width: 100px;
+        font-size:1.2rem;
+        letter-spacing: 1px;
+    }
+
+}

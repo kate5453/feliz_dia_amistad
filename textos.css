@@ -674,7 +674,8 @@ html{
     line-height: 1.5;
     color: var(--soft-white);
     text-align: left;
-    white-space: pre-wrap;
+    /* white-space: pre-wrap; */
+    white-space: pre-line;
     padding: 1.5rem 3rem;
     overflow-y: auto;
     flex-grow: 1;
@@ -797,6 +798,9 @@ html{
 @media (max-width: 576px) {
     #main-second{
         margin-top: -50px;
+    }
+    .container-section{
+        padding: 0 30px;
     }
     .gif-container{
         width: 100%;

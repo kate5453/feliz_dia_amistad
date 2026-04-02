@@ -851,3 +851,9 @@
   0%, 100% { transform: scale(0.35) rotate(-45deg) rotateY(-120deg); }
   50% { transform: scale(0.35) rotate(-42deg) rotateY(-115deg); }
 }
+
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+    #ramo_flowers{ margin-top: -50px; }
+}
